@@ -1,7 +1,13 @@
 from PIL import Image
 import face_recognition
+import sys
 
-path = "./images/konf_2.jpg"
+
+if len(sys.argv) == 2:
+    path = "./{}".format(sys.argv[1])
+else:
+    path = "./images/konf_2.jpg"
+
 # Load the jpg file into a numpy array
 image = face_recognition.load_image_file(path)
 

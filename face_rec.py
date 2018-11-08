@@ -1,11 +1,16 @@
 import face_recognition
 import glob
 import time
+import sys
 
 start_time = time.time()
 
-unknown_images_path = "./images/"
-known_images_path = "./known_images/"
+if len(sys.argv) == 3:
+    unknown_images_path = "./{}".format(sys.argv[2])
+    known_images_path = "./{}".format(sys.argv[1])
+else:
+    unknown_images_path = "./images/"
+    known_images_path = "./known_images/"
 
 
 known_faces = {}
@@ -30,6 +35,6 @@ for filename in glob.glob(unknown_images_path + "*.jpg"):
     for name in known_faces:
         res = face_recognition.compare_faces(face_encodings, known_faces[name])
         if True in res:
-            print("Ooh its {} face in {}".format(name, filename))
+            print("Found {} face in {}".format(name, filename))
 
 print(time.time() - start_time)
