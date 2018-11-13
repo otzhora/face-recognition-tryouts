@@ -36,3 +36,15 @@ python3 face_rec.py known_images/ images/
 python3 georgia_bench.py 
 python3 yale_bench.py  
 ```
+
+* form_json.py
+
+    Размечает фотографии и формирует json файл faces.json
+    
+* mark_faces_from_json.py
+
+    Считывает данные разметки из json файла (стандарно faces.json) и применяет их к фотографии (стандартно к 0 фотографии файла, но можно аргументом передать любую фотографию)
+```bash
+python3 mark_faces_from_json.py ./images/Robot_1.jpg
+```
+    
