@@ -29,7 +29,7 @@ for filename in glob.glob(unknown_images_path+"*.*"):
         continue
 
     for name in known_faces:
-        res = face_recognition.compare_faces(face_encodings, known_faces[name])
+        res = face_recognition.compare_faces(face_encodings, known_faces[name], 0.55)
         if True in res:
             ans_name = filename[filename.rfind('/') + 1: filename.rfind('.')]
             if ans_name != name:
